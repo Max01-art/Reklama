@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Vebinari - Reģistrācija</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e7e34 0%, #28a745 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+            text-align: center;
+            animation: slideUp 0.5s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .logo {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #1e7e34;
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .date-time {
+            color: #495057;
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .date-time strong {
+            color: #1e7e34;
+            font-size: 20px;
+        }
+        
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            gap: 10px;
+        }
+        
+        .btn-primary {
+            background: #28a745;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #007bff;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+        }
+        
+        .info {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            text-align: left;
+            border-left: 4px solid #28a745;
+        }
+        
+        .info h3 {
+            color: #1e7e34;
+            margin-bottom: 10px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .info p {
+            color: #495057;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+        
+        .info ol {
+            margin-left: 20px;
+            color: #495057;
+            line-height: 1.8;
+        }
+        
+        .icon {
+            font-size: 24px;
+        }
+        
+        .success-message {
+            display: none;
+            padding: 15px;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            color: #155724;
+            margin-bottom: 20px;
+        }
+        
+        .success-message.show {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">📊</div>
+        <h1>Excel Vebinari</h1>
+        <div class="date-time">
+            <strong>2026. gada 5. janvāris</strong><br>
+            Laiks: 12:16 - 14:16<br>
+            Ilgums: 2 stundas
+        </div>
+        
+        <div id="successMessage" class="success-message">
+            <strong>✓ Notikums pievienots kalendāram!</strong>
+        </div>
+        
+        <div class="buttons">
+            <button class="btn btn-primary" onclick="addToCalendar()">
+                <span class="icon">📅</span>
+                <span>Pievienot kalendāram</span>
+            </button>
+            <a href="https://rtucloud1.zoom.us/webinar/register/7717649307852/WN_k9l97qDJQ5qTwR4ptX6vKw" 
+               class="btn btn-secondary" 
+               target="_blank">
+                <span class="icon">✍️</span>
+                <span>Reģistrēties vebināram</span>
+            </a>
+        </div>
+        
+        <div class="info">
+            <h3><span>ℹ️</span> Instrukcijas:</h3>
+            <ol>
+                <li>Noklikšķiniet uz <strong>"Pievienot kalendāram"</strong></li>
+                <li>Atveriet lejupielādēto .ics failu</li>
+                <li>Notikums tiks pievienots jūsu kalendāram</li>
+                <li>Saņemsiet atgādinājumu 15 minūtes pirms sākuma</li>
+                <li>Reģistrējieties vebināram, izmantojot saiti kalendāra aprakstā</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Excel Webinar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:excel-webinar-20260105@rtucloud1.zoom.us
+DTSTAMP:20241229T000000Z
+DTSTART;TZID=Europe/Riga:20260105T121600
+DTEND;TZID=Europe/Riga:20260105T141600
+SUMMARY:Excel Vebinari
+DESCRIPTION:Vebinārs: Excel Vebinari\\n\\nReģistrējieties šeit:\\nhttps://rtucloud1.zoom.us/webinar/register/7717649307852/WN_k9l97qDJQ5qTwR4ptX6vKw\\n\\nPēc reģistrācijas saņemsiet saiti pieslēgšanās vebināram.
+LOCATION:Zoom Webinar
+URL:https://rtucloud1.zoom.us/webinar/register/7717649307852/WN_k9l97qDJQ5qTwR4ptX6vKw
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Atgādinājums: Excel Vebinari sāksies pēc 15 minūtēm
+END:VALARM
+END:VEVENT
+END:VCALENDAR`;
+
+        function addToCalendar() {
+            const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+            const url = window.URL.createObjectURL(blob);
+            
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'Excel_Vebinari_2026-01-05.ics';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+            
+            // Показываем сообщение об успехе
+            const message = document.getElementById('successMessage');
+            message.classList.add('show');
+            setTimeout(() => {
+                message.classList.remove('show');
+            }, 4000);
+        }
+        
+        // Автоматически предлагаем добавить в календарь при загрузке страницы
+        window.addEventListener('load', function() {
+            // Небольшая задержка для лучшего UX
+            setTimeout(() => {
+                if (confirm('Vai vēlaties pievienot šo notikumu savam kalendāram?')) {
+                    addToCalendar();
+                }
+            }, 500);
+        });
+    </script>
+</body>
+</html>
