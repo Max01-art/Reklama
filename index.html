@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Vebinars - Pievienot kalendāram</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            max-width: 500px;
+            width: 100%;
+            padding: 48px 40px;
+            text-align: center;
+        }
+        
+        .icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+        }
+        
+        h1 {
+            color: #1e293b;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .date-time {
+            color: #64748b;
+            font-size: 18px;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+        
+        .date-time strong {
+            color: #334155;
+            display: block;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        
+        .btn-primary {
+            display: block;
+            width: 100%;
+            padding: 18px 32px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-bottom: 16px;
+        }
+        
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.5);
+        }
+        
+        .btn-secondary {
+            display: block;
+            width: 100%;
+            padding: 18px 32px;
+            background: #10b981;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .btn-secondary:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.5);
+        }
+        
+        .info {
+            margin-top: 32px;
+            padding: 24px;
+            background: #f8fafc;
+            border-radius: 12px;
+            text-align: left;
+        }
+        
+        .info h3 {
+            color: #1e293b;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .info ol {
+            color: #475569;
+            line-height: 1.8;
+            padding-left: 20px;
+        }
+        
+        .info li {
+            margin-bottom: 8px;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: #fef3c7;
+            color: #92400e;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 16px;
+        }
+        
+        .auto-download {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">📅</div>
+        <h1>Excel Vebinars</h1>
+        <div class="date-time">
+            <strong>2026. gada 5. janvāris</strong>
+            12:16 - 14:16 (Rīgas laiks)<br>
+            Ilgums: 2 stundas
+        </div>
+        
+        <button class="btn-primary" onclick="addToCalendar()">
+            📥 Pievienot kalendāram
+        </button>
+        
+        <a href="https://rtucloud1.zoom.us/webinar/register/7717649307852/WN_k9l97qDJQ5qTwR4ptX6vKw" 
+           class="btn-secondary" 
+           target="_blank">
+            🔗 Reģistrēties vebināram
+        </a>
+        
+        <div class="badge">
+            ✨ Automātiska pievienošana
+        </div>
+        
+        <div class="info">
+            <h3>📋 Kā tas darbojas:</h3>
+            <ol>
+                <li>Nospiediet "Pievienot kalendāram"</li>
+                <li>Atveriet lejupielādēto failu</li>
+                <li>Apstipriniet pievienošanu</li>
+                <li>Notikums tiks pievienots jūsu kalendāram ar visu informāciju</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Excel Webinar//LV
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:excel-webinar-20260105@rtucloud1.zoom.us
+DTSTAMP:20241229T000000Z
+DTSTART:20260105T101600Z
+DTEND:20260105T121600Z
+SUMMARY:Excel Vebinars
+DESCRIPTION:Vebinārs: Excel Vebinars\\n\\nReģistrēties: https://rtucloud1.zoom.us/webinar/register/7717649307852/WN_k9l97qDJQ5qTwR4ptX6vKw\\n\\nPēc reģistrācijas saņemsiet saiti, lai pievienotos vebināram.
+LOCATION:Zoom Webinar
+URL:https://rtucloud1.zoom.us/webinar/register/7717649307852/WN_k9l97qDJQ5qTwR4ptX6vKw
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Atgādinājums: Excel Vebinars sāksies pēc 15 minūtēm
+END:VALARM
+END:VEVENT
+END:VCALENDAR`;
+
+        function addToCalendar() {
+            const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'Excel_Vebinars_2026-01-05.ics';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+        }
+        
+        // Автоматическая загрузка при открытии (для QR-кода)
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('auto') === '1') {
+            setTimeout(() => {
+                addToCalendar();
+            }, 500);
+        }
+    </script>
+</body>
+</html>

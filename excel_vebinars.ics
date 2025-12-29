@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Excel Webinar//LV
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:excel-webinar-20260105@rtucloud1.zoom.us
+DTSTAMP:20241229T000000Z
+DTSTART:20260105T101600Z
+DTEND:20260105T121600Z
+SUMMARY:Excel Vebinars
+DESCRIPTION:Vebinārs: Excel Vebinars\n\nReģistrēties: https://rtucloud1.zoom.us/webinar/register/7717649307852/WN_k9l97qDJQ5qTwR4ptX6vKw\n\nPēc reģistrācijas saņemsiet saiti, lai pievienotos vebināram.
+LOCATION:Zoom Webinar
+URL:https://rtucloud1.zoom.us/webinar/register/7717649307852/WN_k9l97qDJQ5qTwR4ptX6vKw
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Atgādinājums: Excel Vebinars sāksies pēc 15 minūtēm
+END:VALARM
+END:VEVENT
+END:VCALENDAR
